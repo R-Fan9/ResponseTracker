@@ -12,7 +12,7 @@ def clean_up(df):
         email = email_list[0]
         df.at[idx, ut.email_header] = email
         if(len(email_list) > 1):
-            emails = ' '.join(email_list[1:]);
+            emails = ' '.join(email_list[1:])
             df.at[idx, ut.cc_header] = emails
 
 def main():

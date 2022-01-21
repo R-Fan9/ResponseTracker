@@ -9,6 +9,10 @@ status_header = 'status'
 na = 'N/A'
 default_status = 'to do'
 
+action_msg = "start migration(1), update status(2), exit and save(3) "
+
+dashboard_file_dir = "dashboard.csv"
+
 def create_df(data, cols):
     df_new = pd.DataFrame(data, columns=cols)
     return df_new
@@ -37,4 +41,7 @@ def extract_emails(str):
 def concat_val(df, idxs, col_idx):
     vals = ' '.join([str(get_cell_val(df, i, col_idx)) for i in idxs])
     return vals
+
+def get_dashboard():
+    return load_csv(dashboard_file_dir)
 
