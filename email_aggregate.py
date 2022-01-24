@@ -6,11 +6,13 @@ def group_by_col(df, col_name):
 
 def get_email_prefixes(df, email_dict):
     email_prefixes = []
+    cc_col_idx = df.columns.get_loc(ut.cc_header)
+    pf_col_idx = df.columns.get_(ut.pf_header)
     for e in list(email_dict.keys()):
         email_prefixes.append([
             e, 
-            ut.concat_val(df, email_dict[e], 2), 
-            ut.concat_val(df, email_dict[e], 0), 
+            ut.concat_val(df, email_dict[e], cc_col_idx), 
+            ut.concat_val(df, email_dict[e], pf_col_idx), 
             ut.default_status
             ])
 

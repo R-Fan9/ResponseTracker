@@ -2,8 +2,9 @@ import utils as ut
 
 def sync_status(df1, df2):
     for idx, row in df2.iterrows():
+        email = ut.extract_emails(row[ut.email_header])[0]
         df1.loc[
-            df1[ut.email_header].str.contains(row[ut.email_header], case=False), 
+            df1[ut.email_header].str.contains(email, case=False), 
             ut.status_header
             ] = row[ut.status_header]
 

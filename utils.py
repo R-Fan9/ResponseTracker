@@ -9,9 +9,13 @@ status_header = 'status'
 na = 'N/A'
 default_status = 'to do'
 
-action_msg = "start migration(1), update status(2), exit and save(3) "
+action_msg = "start migration(1), email actions(2), exit and save(3) "
+email_acton_msg = "update status(1), show prefixes(2), show cc(3), exit(4) "
+
 
 dashboard_file_dir = "dashboard.csv"
+start_ao_ad = 1
+end_ao_ad = 3
 
 def create_df(data, cols):
     df_new = pd.DataFrame(data, columns=cols)
@@ -44,4 +48,7 @@ def concat_val(df, idxs, col_idx):
 
 def get_dashboard():
     return load_csv(dashboard_file_dir)
+
+def get_col_idx(df, header):
+    return df.columns.get_loc(header)
 
