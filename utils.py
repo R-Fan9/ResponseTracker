@@ -10,12 +10,19 @@ na = 'N/A'
 default_status = 'to do'
 
 action_msg = "start migration(1), email actions(2), exit and save(3) "
-email_acton_msg = "update status(1), show prefixes(2), show cc(3), exit(4) "
-
+email_acton_msg = "update status(1), show prefixes(2), show cc(3), show status(4), exit(5) "
 
 dashboard_file_dir = "dashboard.csv"
 start_ao_ad = 1
 end_ao_ad = 3
+
+status_ops = [
+    "waiting for Samer",
+    "waiting for job owner",
+    "Done",
+    "Done previously",
+    "email no longer valid"
+    ]
 
 def create_df(data, cols):
     df_new = pd.DataFrame(data, columns=cols)
